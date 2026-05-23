@@ -1,5 +1,4 @@
 import express from "express";
-import __dirname from "../utils/path-utils.ts";
 import path from "path";
 import fs from "fs";
 import helmet from "helmet";
@@ -27,12 +26,12 @@ const rateLimitMiddleware = rateLimit({
   },
 });
 
-const logFile = fs.createWriteStream(
-  path.join(__dirname, "./logs/access.log"),
-  {
-    flags: "a",
-  },
-);
+const logsDir = path.join(process.cwd(), "logs");
+fs.mkdirSync(logsDir, { recursive: true });
+
+const logFile = fs.createWriteStream(path.join(logsDir, "access.log"), {
+  flags: "a",
+});
 const morganMiddleware = morgan("combined", { stream: logFile });
 
 const corsMiddleware = cors({ origin: "*" });

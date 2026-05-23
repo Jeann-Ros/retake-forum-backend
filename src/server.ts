@@ -89,4 +89,5 @@ async function bootstrap() {
 
 bootstrap().catch((error) => {
   console.error("Falha ao iniciar servidor:", error);
+  process.exit(1);
 });
