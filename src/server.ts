@@ -14,6 +14,7 @@ import UsuarioRouter from "./routes/usuario-router.ts";
 import NoticiaRouter from "./routes/noticia-router.ts";
 import PostRouter from "./routes/post-router.ts";
 import CommentRouter from "./routes/comment-router.ts";
+import CsRouter from "./routes/cs-router.ts";
 import MongoConfig from "./config/mongo-config.ts";
 import { Usuario } from "./models/usuario/usuario.ts";
 import UsuarioModel, { AdmFlag } from "./models/usuario/usuario-schema.ts";
@@ -35,6 +36,7 @@ app.use("/usuarios", UsuarioRouter);
 app.use("/noticias", NoticiaRouter);
 app.use("/posts", PostRouter);
 app.use("/comentarios", CommentRouter);
+app.use("/cs", CsRouter);
 
 async function seedInitialUsers() {
   const initialUsers = [
