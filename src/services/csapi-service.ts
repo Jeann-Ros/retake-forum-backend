@@ -36,6 +36,7 @@ export type CsApiTeamRank = {
   rank: number;
   rank_diff: number;
   points: number;
+  points_diff: number;
 };
 
 type CsApiRankingResponse = {
